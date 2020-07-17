@@ -29,7 +29,7 @@ dependencies {
   implementation 'com.google.guava:guava:28.2-jre'
 
   // Javalin, a simple web framework for Java
-  implementation 'io.javalin:javalin:3.7.0'
+  implementation 'io.javalin:javalin:3.9.1'
 
   // Mongo DB Driver for Java
   implementation 'org.mongodb:mongodb-driver:3.12.5'
