@@ -8,8 +8,8 @@ import { User } from './user';
 })
 export class UserCardComponent implements OnInit {
 
-  @Input() user: User;
-  @Input() simple ? = false;
+  @Input() user?: User;
+  @Input() simple: boolean  = false;
 
   constructor() { }
 

@@ -19,8 +19,10 @@ export class ActivatedRouteStub {
   /** The mock paramMap observable */
   readonly paramMap = this.subject.asObservable();
 
-  /** Set the paramMap observables's next value */
+  /** Set the paramMap to the next value of the observable */
   setParamMap(params?: Params) {
-    this.subject.next(convertToParamMap(params));
+    if (params != undefined) {
+      this.subject.next(convertToParamMap(params));
+    }
   }
 }

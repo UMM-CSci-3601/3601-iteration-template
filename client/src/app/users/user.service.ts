@@ -39,20 +39,18 @@ export class UserService {
     let filteredUsers = users;
 
     // Filter by name
-    if (filters.name) {
-      filters.name = filters.name.toLowerCase();
-
+    const name = filters.name?.toLowerCase();
+    if (name != undefined) {
       filteredUsers = filteredUsers.filter(user => {
-        return user.name.toLowerCase().indexOf(filters.name) !== -1;
+        return user.name.toLowerCase().indexOf(name) !== -1;
       });
     }
 
     // Filter by company
-    if (filters.company) {
-      filters.company = filters.company.toLowerCase();
-
+    const company = filters.company?.toLowerCase();
+    if (company) {
       filteredUsers = filteredUsers.filter(user => {
-        return user.company.toLowerCase().indexOf(filters.company) !== -1;
+        return user.company.toLowerCase().indexOf(company) !== -1;
       });
     }
 

@@ -2,6 +2,7 @@ import { Injectable } from '@angular/core';
 import { Observable, of } from 'rxjs';
 import { User, UserRole } from '../app/users/user';
 import { UserService } from '../app/users/user.service';
+import { HttpClient } from '@angular/common/http';
 
 /**
  * A "mock" version of the `UserService` that can be used to test components
@@ -39,8 +40,8 @@ export class MockUserService extends UserService {
     }
   ];
 
-  constructor() {
-    super(null);
+  constructor(httpClient: HttpClient) {
+    super(httpClient);
   }
 
   getUsers(filters: { role?: UserRole, age?: number, company?: string }): Observable<User[]> {

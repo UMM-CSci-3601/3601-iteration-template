@@ -14,9 +14,8 @@ export class AddUserComponent implements OnInit {
 
   addUserForm: FormGroup;
 
-  user: User;
-
   constructor(private fb: FormBuilder, private userService: UserService, private snackBar: MatSnackBar, private router: Router) {
+    this.addUserForm = this.createForms();
   }
 
   // not sure if this name is magical and making it be found or if I'm missing something,
@@ -48,10 +47,9 @@ export class AddUserComponent implements OnInit {
     ]
   };
 
-  createForms() {
-
-    // add user form validations
-    this.addUserForm = this.fb.group({
+  createForms() : FormGroup {
+    // Construct the user form validations
+    return this.fb.group({
       // We allow alphanumeric input and limit the length for name.
       name: new FormControl('', Validators.compose([
         Validators.required,
@@ -102,15 +100,14 @@ export class AddUserComponent implements OnInit {
     this.createForms();
   }
 
-
   submitForm() {
     this.userService.addUser(this.addUserForm.value).subscribe(newID => {
-      this.snackBar.open('Added User ' + this.addUserForm.value.name, null, {
+      this.snackBar.open('Added User ' + this.addUserForm.value.name, undefined, {
         duration: 2000,
       });
       this.router.navigate(['/users/', newID]);
     }, err => {
-      this.snackBar.open('Failed to add the user', null, {
+      this.snackBar.open('Failed to add the user', undefined, {
         duration: 2000,
       });
     });

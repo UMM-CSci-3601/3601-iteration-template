@@ -12,15 +12,15 @@ import { Subscription } from 'rxjs';
 
 export class UserListComponent implements OnInit, OnDestroy  {
   // These are public so that tests can reference them (.spec.ts)
-  public serverFilteredUsers: User[];
-  public filteredUsers: User[];
+  public serverFilteredUsers: User[] = [];
+  public filteredUsers: User[] = [];
 
-  public userName: string;
-  public userAge: number;
-  public userRole: UserRole;
-  public userCompany: string;
+  public userName: string = '';
+  public userAge: number = -1;
+  public userRole: UserRole = 'viewer';
+  public userCompany: string = '';
   public viewType: 'card' | 'list' = 'card';
-  getUsersSub: Subscription;
+  getUsersSub?: Subscription;
 
 
   // Inject the UserService into this component.
@@ -28,9 +28,7 @@ export class UserListComponent implements OnInit, OnDestroy  {
   //
   // We can call upon the service for interacting
   // with the server.
-
   constructor(private userService: UserService) {
-
   }
 
   getUsersFromServer(): void {

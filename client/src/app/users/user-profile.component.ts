@@ -13,20 +13,21 @@ export class UserProfileComponent implements OnInit, OnDestroy {
 
   constructor(private route: ActivatedRoute, private userService: UserService) { }
 
-  user: User;
-  id: string;
-  getUserSub: Subscription;
+  user?: User;
+  getUserSub?: Subscription;
 
   ngOnInit(): void {
     // We subscribe to the parameter map here so we'll be notified whenever
     // that changes (i.e., when the URL changes) so this component will update
     // to display the newly requested user.
     this.route.paramMap.subscribe((pmap) => {
-      this.id = pmap.get('id');
-      if (this.getUserSub) {
-        this.getUserSub.unsubscribe();
+      const id = pmap.get('id');
+      if (id != undefined) {
+        if (this.getUserSub) {
+          this.getUserSub.unsubscribe();
+        }
+        this.getUserSub = this.userService.getUserById(id).subscribe(user => this.user = user);
       }
-      this.getUserSub = this.userService.getUserById(this.id).subscribe(user => this.user = user);
     });
   }
 
