@@ -18,12 +18,14 @@ import com.google.common.collect.ImmutableMap;
 import com.mockrunner.mock.web.MockHttpServletRequest;
 import com.mockrunner.mock.web.MockHttpServletResponse;
 import com.mongodb.BasicDBObject;
+import com.mongodb.Block;
 import com.mongodb.MongoClientSettings;
 import com.mongodb.ServerAddress;
 import com.mongodb.client.MongoClient;
 import com.mongodb.client.MongoClients;
 import com.mongodb.client.MongoCollection;
 import com.mongodb.client.MongoDatabase;
+import com.mongodb.connection.ClusterSettings.Builder;
 
 import org.bson.Document;
 import org.bson.types.ObjectId;
@@ -61,16 +63,19 @@ public class UserControllerSpec {
   @BeforeAll
   public static void setupAll() {
     String mongoAddr = System.getenv().getOrDefault("MONGO_ADDR", "localhost");
+    System.out.println(mongoAddr);
 
-    mongoClient = MongoClients.create(
-    MongoClientSettings.builder()
-    .applyToClusterSettings(builder ->
-    builder.hosts(Arrays.asList(new ServerAddress(mongoAddr))))
-    .build());
+    Block<Builder> block = builder -> {
+      List<ServerAddress> serverList = Arrays.asList(new ServerAddress(mongoAddr));
+      builder.hosts(serverList);
+    };
+    mongoClient 
+      = MongoClients
+          .create(MongoClientSettings.builder()
+                    .applyToClusterSettings(block).build());
 
     db = mongoClient.getDatabase("test");
   }
-
 
   @BeforeEach
   public void setupEach() throws IOException {
@@ -126,7 +131,7 @@ public class UserControllerSpec {
 
   @AfterAll
   public static void teardown() {
-    db.drop();
+    // db.drop();
     mongoClient.close();
   }
 

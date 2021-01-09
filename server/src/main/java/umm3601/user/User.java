@@ -1,6 +1,7 @@
 package umm3601.user;
 
 import org.mongojack.Id;
+import org.mongojack.MongoCollection;
 import org.mongojack.ObjectId;
 
 public class User {
