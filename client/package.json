@@ -42,7 +42,7 @@
     "@nrwl/workspace": "^11.4.0",
     "@types/jasmine": "^3.6.4",
     "@types/jasminewd2": "~2.0.3",
-    "@types/node": "^13.13.45",
+    "@types/node": "^15.12.1",
     "@typescript-eslint/eslint-plugin": "4.3.0",
     "@typescript-eslint/parser": "4.3.0",
     "cypress": "^6.6.0",
