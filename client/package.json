@@ -38,7 +38,7 @@
     "@angular-eslint/template-parser": "~14.0.2",
     "@angular/cli": "^14.0.5",
     "@angular/compiler-cli": "^14.0.5",
-    "@angular/language-service": "^14.0.5",
+    "@angular/language-service": "^14.1.1",
     "@cypress/schematic": "^2.0.0",
     "@floogulinc/cypress-mongo-seeder": "^1.1.1",
     "@types/jasmine": "^4.0.3",
