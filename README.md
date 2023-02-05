@@ -61,7 +61,7 @@ Additional resources on tooling and techniques are in [the resources list](RESOU
 
 ## Contributors
 
-This contributors to this project can be seen [here](../../graphs/contributors).
+The contributors to this project can be seen [here](../../graphs/contributors).
 <!-- ALL-CONTRIBUTORS-LIST:START - Do not remove or modify this section -->
 <!-- prettier-ignore-start -->
 <!-- markdownlint-disable -->
