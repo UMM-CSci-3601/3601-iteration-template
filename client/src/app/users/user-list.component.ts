@@ -4,6 +4,16 @@ import { User, UserRole } from './user';
 import { UserService } from './user.service';
 import { Subscription } from 'rxjs';
 
+/**
+ * A component that displays a list of users, either as a grid
+ * of cards or as a vertical list.
+ *
+ * The component supports local filtering by name and/or company,
+ * and remote filtering (i.e., filtering by the server) by
+ * role and/or age. These choices are fairly arbitrary here,
+ * but in "real" projects you want to think about where it
+ * makes the most sense to do the filtering.
+ */
 @Component({
   selector: 'app-user-list-component',
   templateUrl: 'user-list.component.html',
@@ -23,17 +33,22 @@ export class UserListComponent implements OnInit, OnDestroy  {
   public viewType: 'card' | 'list' = 'card';
   getUsersSubscription: Subscription;
 
-
-  // Inject the UserService into this component.
-  // That's what happens in the following constructor.
-  //
-  // We can call upon the service for interacting
-  // with the server.
-
-  constructor(private userService: UserService) {
+  /**
+   * This constructor injects both an instance of `UserService`
+   * and an instance of `MatSnackBar` into this component.
+   * `UserService` lets us interact with the server.
+   *
+   * @param userService the `UserService` used to get users from the server
+   * @param snackBar the `MatSnackBar` used to display feedback
+   */
   constructor(private userService: UserService, private snackBar: MatSnackBar) {
+    // Nothing here – everything is in the injection parameters.
   }
 
+  /**
+   * Get the users from the server, filtered by the role and age specified
+   * in the GUI.
+   */
   getUsersFromServer(): void {
     this.unsubscribeConditionally();
     // A user-list-component has a getUsersSubscription (which is a subscription)
@@ -48,7 +63,7 @@ export class UserListComponent implements OnInit, OnDestroy  {
       // Next time we see a change in the Observable<User[]>,
       // refer to that User[] as returnedUsers here and do the steps in the {}
       next: (returnedUsers) => {
-        // First, update the array of serverFilteredUsers
+        // First, update the array of serverFilteredUsers to be the User[] in the observable
         this.serverFilteredUsers = returnedUsers;
         // Then update the filters for our client-side filtering as described in this method
         this.updateFilter();
@@ -68,6 +83,10 @@ export class UserListComponent implements OnInit, OnDestroy  {
     });
   }
 
+  /**
+   * Called when the filtering information is changed in the GUI so we can
+   * get an updated list of `filteredUsers`.
+   */
   public updateFilter(): void {
     this.filteredUsers = this.userService.filterUsers(
       this.serverFilteredUsers, { name: this.userName, company: this.userCompany });
