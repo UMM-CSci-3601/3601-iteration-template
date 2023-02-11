@@ -1,4 +1,5 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
+import { MatSnackBar } from '@angular/material/snack-bar';
 import { User, UserRole } from './user';
 import { UserService } from './user.service';
 import { Subscription } from 'rxjs';
@@ -30,7 +31,7 @@ export class UserListComponent implements OnInit, OnDestroy  {
   // with the server.
 
   constructor(private userService: UserService) {
-
+  constructor(private userService: UserService, private snackBar: MatSnackBar) {
   }
 
   getUsersFromServer(): void {
@@ -52,8 +53,16 @@ export class UserListComponent implements OnInit, OnDestroy  {
         // Then update the filters for our client-side filtering as described in this method
         this.updateFilter();
       },
-      // If we observe an error in that Observable, put it in the console so we can learn more
-      error: (e) => console.error(e),
+      // If we observe an error in that Observable, display info to the user
+      // and put it in the console so we can learn more
+      error: (e) => {
+        this.snackBar.open(
+          'Problem contacting the server – try again',
+          'OK',
+          // The message will disappear after 3 seconds.
+          { duration: 3000 });
+        console.error('We couldn\'t get the list of users; the server might be down');
+      },
       // Once the observable has completed successfully
       complete: () => console.log('Users were filtered on the server') //this WAS console.info, but that wasn't allowed here
     });
