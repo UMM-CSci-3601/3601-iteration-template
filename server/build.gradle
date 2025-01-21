@@ -5,17 +5,17 @@ plugins {
   // Apply the application plugin to add support for building a CLI application
   id 'application'
 
-  // Apply the Jacoco plugin to add suppport for JUnit test coverage reports.
+  // Apply the Jacoco plugin to add support for JUnit test coverage reports.
   id 'jacoco'
 
   // Apply the checkstyle plugin to check for appropriate Java code style.
   id 'checkstyle'
 }
 
-// Build and run the project with Java 17
+// Build and run the project with Java 21
 java {
   toolchain {
-    languageVersion = JavaLanguageVersion.of(17)
+    languageVersion = JavaLanguageVersion.of(21)
   }
 }
 
@@ -51,8 +51,6 @@ dependencies {
 
   // Mockito for testing
   testImplementation 'org.mockito:mockito-core:5.15.2'
-
-  testImplementation 'com.mockrunner:mockrunner-servlet:2.0.7'
 }
 
 application {
