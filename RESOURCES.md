@@ -7,18 +7,19 @@ GitHub, you might consider going back and
 revisiting some of the resources
 from [Lab 0](https://github.com/UMM-CSci-3601/intro-to-git) including:
 
-- [Understanding the GitHub flow](https://guides.github.com/introduction/flow/)
-- [Mastering Markdown](https://guides.github.com/features/mastering-markdown/)
+- [Understanding the GitHub flow](https://docs.github.com/en/get-started/using-github/github-flow)
+- [Basics of Writing and Formatting Text for GitHub (Markdown)](https://docs.github.com/en/get-started/writing-on-github/getting-started-with-writing-and-formatting-on-github/basic-writing-and-formatting-syntax)
+- [Working with Advanced Formatting](https://docs.github.com/en/get-started/writing-on-github/working-with-advanced-formatting)
 - [The GitKraken tutorial videos](https://www.gitkraken.com/learn-git)
 
 ## Angular (client)
 
-- [Angular Unit Testing (Karma)](https://angular.io/guide/testing)
-- [Angular Routing](https://angular.io/guide/router)
-- [Angular Forms](https://angular.io/guide/forms-overview)
+- [Angular Unit Testing (Karma)](https://angular.dev/guide/testing)
+- [Angular Routing](https://angular.dev/guide/routing/common-router-tasks)
+- [Angular Forms](https://angular.dev/guide/forms)
 - [Angular Material](https://material.angular.io/)
-- [What are environments in Angular](https://angular.io/guide/build)
-- [Angular CLI](https://angular.io/cli)
+- [What are environments in Angular](https://angular.dev/tools/cli/build)
+- [Angular CLI](https://angular.dev/tools/cli)
 - [Learn RxJS](https://www.learnrxjs.io/)
 
 ## Javalin (server)
@@ -27,8 +28,9 @@ from [Lab 0](https://github.com/UMM-CSci-3601/intro-to-git) including:
 - [Javalin Tutorials](https://javalin.io/tutorials/)
   - [Testing Javalin Applications](https://javalin.io/tutorials/testing)
 - [Thunder Client](https://www.thunderclient.com)
-- [Thunder Client VS Code Extension](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
-- [Thunder Client for testing your API](https://github.com/rangav/thunder-client-support)
+  - [Thunder Client VS Code Extension](https://marketplace.visualstudio.com/items?itemName=rangav.vscode-thunder-client)
+  - [Thunder Client Documentation](https://docs.thunderclient.com/)
+  - [Thunder Client for testing your API](https://github.com/rangav/thunder-client-support)
 
 ## MongoDB (database)
 
@@ -55,7 +57,7 @@ available to as broad as audience as possible.
 
 Here are some useful resources to explore:
 
-- [The Angular accessibility guide](https://angular.io/guide/accessibility)
+- [The Angular accessibility guide](https://angular.dev/best-practices/a11y)
 - [The U of MN's accessibility info for web developers](https://accessibility.umn.edu/core-skills-web-developers)
 - Firefox has [a built-in accessibility checker in the
   "Web Developer" tools](https://firefox-source-docs.mozilla.org/devtools-user/accessibility_inspector/)
