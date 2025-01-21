@@ -32,10 +32,10 @@ from [Lab 0](https://github.com/UMM-CSci-3601/intro-to-git) including:
 
 ## MongoDB (database)
 
-- [The MongoDB Manual](https://docs.mongodb.com/manual/)
-  - [The MongoDB v5 Manual](https://www.mongodb.com/docs/v5.0/)
-- [MongoDB Java Drivers](https://mongodb.github.io/mongo-java-driver/)
-  - [MongoDB Driver 4.11 Documentation](https://mongodb.github.io/mongo-java-driver/4.11/)
+- [The MongoDB Manual](https://www.mongodb.com/docs/manual/)
+  - [The MongoDB v7 Manual](https://www.mongodb.com/docs/v7.0/)
+- [MongoDB Java Drivers](https://www.mongodb.com/docs/drivers/java-drivers/)
+  - [MongoDB Java Driver 5.3 Documentation](https://www.mongodb.com/docs/drivers/java/sync/v5.3/)
 - [MongoJack](https://mongojack.org/)
 - [JSON Generator](https://next.json-generator.com/) for generating
   seed data for testing
