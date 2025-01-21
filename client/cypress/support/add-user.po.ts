@@ -10,8 +10,8 @@ export class AddUserPage {
   private readonly ageFieldName = 'age';
   private readonly companyFieldName = 'company';
   private readonly emailFieldName = 'email';
-  private readonly formFieldSelector = `mat-form-field`;
-  private readonly dropDownSelector = `mat-option`;
+  private readonly formFieldSelector = 'mat-form-field';
+  private readonly dropDownSelector = 'mat-option';
 
   navigateTo() {
     return cy.visit(this.url);
