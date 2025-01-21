@@ -90,6 +90,8 @@
       "skipcq",
       "sortorder",
       "stackdump",
+      "suppressionfilter",
+      "suppressionxpathfilter",
       "SURELOGIC",
       "swapfile",
       "swapon",
