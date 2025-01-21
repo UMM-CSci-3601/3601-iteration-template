@@ -11,7 +11,7 @@ import { Company } from '../company-list/company';
  * about `Users` from the server.
  */
 @Injectable({
-  providedIn: `root`
+  providedIn: 'root'
 })
 export class UserService {
   // The URL for the users part of the server API.
