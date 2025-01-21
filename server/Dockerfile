@@ -1,5 +1,5 @@
 # Build the server files in a build stage
-FROM openjdk:17-jdk-slim AS build
+FROM openjdk:21-jdk-slim AS build
 # Copy the project into /tmp/server
 COPY . /tmp/server
 WORKDIR /tmp/server
@@ -7,7 +7,7 @@ WORKDIR /tmp/server
 RUN ./gradlew assemble --no-daemon
 
 # Build the production server container
-FROM openjdk:17-jdk-slim
+FROM openjdk:21-jdk-slim
 EXPOSE 4567
 # Copy the distribution tar that was built in the build stage
 COPY --from=build /tmp/server/build/distributions/server.tar /app/
@@ -20,4 +20,4 @@ ADD https://github.com/ufoscout/docker-compose-wait/releases/download/2.7.3/wait
 RUN chmod +x /wait
 
 # Run the server when the container is started
-CMD /wait && server/bin/server
+CMD ["/wait", "server/bin/server"]
