@@ -7,7 +7,8 @@
 - [Changing the name](#changing-the-name)
 - [Contributors](#contributors)
 
-This is your starter code for Iteration 1.
+This is your starter code for Iteration 1. You will probably want to remove a 
+lot of this once you get going on your project.
 
 There is quite a lot of example code in this production template that you don't
 want or need down the road, but is included to help you get started.
